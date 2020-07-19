@@ -1,0 +1,20 @@
+git init
+git clone
+git push
+git pull
+git log
+git reflog 
+gir reset --hard (hash commit)
+git add 
+git reset --hard origin/master
+git origin master	
+
+git branch
+git branch *name* -> for create a new breanch
+git checkout *name-of-branch*
+git commit -am "message" -> a: add m:message
+git merge *name-of-branch* -> sum the feature with the master
+git push --set-upstream origin *name-of-breanch* -> for up to github
+
+/*Feature is a kind of timeline in the github.*/
+
