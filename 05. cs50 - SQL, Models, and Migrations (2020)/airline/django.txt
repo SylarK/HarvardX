@@ -1,0 +1,29 @@
+django-admin startproject <name>
+py manage.py startapp <name>
+py manage.py runserver
+py manage.py makemigrations
+py manage.py migrate
+
+>>> from flights.models import Flight
+>>> flights = Flight.objects.all()
+>>> flights
+<QuerySet []>
+>>> f = Flight(origin="New York", destination="London", duration=415)
+>>> f.save()
+>>> Flight.objects.all()
+<QuerySet [<Flight: 1: New York to London>]>
+>>> flights = Flight.objects.all()
+>>> flights[0]
+<Flight: 1: New York to London>
+>>> flight = flights.first()
+>>> flight.delete()
+(1, {'flights.Flight': 1})
+
+>>> from flights.models import Airport
+>>> jfk = Airport(code='JFK', city='New York')
+>>> jfk.save()
+
+>>> f = Flight(origin=jfk, destination=lhr, duration=415)
+>>> f.save()
+
+lhr.arrivals.all()
