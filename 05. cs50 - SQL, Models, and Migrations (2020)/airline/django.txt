@@ -3,6 +3,7 @@ py manage.py startapp <name>
 py manage.py runserver
 py manage.py makemigrations
 py manage.py migrate
+py manage.py createsuperuser
 
 >>> from flights.models import Flight
 >>> flights = Flight.objects.all()
@@ -22,6 +23,19 @@ py manage.py migrate
 >>> from flights.models import Airport
 >>> jfk = Airport(code='JFK', city='New York')
 >>> jfk.save()
+
+from flights.models import *
+
+>>> Airport.objects.all()
+<QuerySet [<Airport: New York (JFK)>, <Airport: London (LHR)>, <Airport: Paris (cdg)>, <Airport: Tokyo (NRT)>]>
+>>> Airport.objects.filter(city='New York')
+>>> Airport.objects.get(city='New York')
+jfk = Airport.objects.get(city='New York')
+cdg = Airport.objects.get(city='Paris')
+>>> f = Flight(origin=jfk, destination=cdg, duration=435)
+f.save()
+
+<QuerySet [<Airport: New York (JFK)>]>
 
 >>> f = Flight(origin=jfk, destination=lhr, duration=415)
 >>> f.save()
