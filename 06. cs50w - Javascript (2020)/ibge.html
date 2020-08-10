@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git</title>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+            document.querySelector('form').onsubmit = function(){
+
+                uf = document.querySelector('#uf').value.toUpperCase();
+                fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/distritos`)
+                .then(data=>{
+                    
+                    const rate = data
+                    console.log(rate)
+                    
+                
+                });
+
+
+
+                return false;
+            };
+
+
+            
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <h3>Distritos por UF</h3>
+    <form>
+        <input id='uf' placeholder='UF' type="text">
+        <input type='submit' value="Submit">
+    </form>
+
+    <div id='view_out'>
+
+    </div>
+
+
+</body>
+</html>
