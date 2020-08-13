@@ -1,0 +1,1 @@
+myUrl = 'http://viacep.com.br/ws/76200000/json/';
